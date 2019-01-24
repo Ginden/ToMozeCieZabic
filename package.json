@@ -1,0 +1,17 @@
+{
+  "name": "ToMozeCieZabic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Michał Wadas <michalwadas@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.0.12",
+    "lodash": "^4.17.11",
+    "puppeteer": "^1.11.0"
+  }
+}

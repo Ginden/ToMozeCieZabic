@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{name}} - To może Cię zabić</title>
+    <style>
+        body {
+            width: 800px;
+            font-size: 18px;
+            padding: 0;
+            margin: 0;
+        }
+        #info {
+            width: 800px;
+        }
+
+        #main {
+            padding-bottom: 2em;
+            background-color: #fff;
+        }
+
+        #main-wrapper {
+            background-color: white;
+            padding-left: 48px;
+            padding-right: 48px;
+            margin: 0 auto;
+        }
+
+        #header {
+            background-color:  #FF4136;
+            color: #fff;
+            font-size: 48px;
+            text-align: center;
+            padding-bottom: 0.25em;
+            padding-top: 0.25em;
+        }
+
+        footer {
+            background-color: black;
+            color: #dddddd;
+            font-size: 24px;
+            text-align: center;
+            padding-bottom: 0.5em;
+            padding-top: 0.5em;
+        }
+
+        #chem {
+            float: left;
+        }
+
+        .big-one {
+            font-family: "Arial";
+        }
+
+        #main {
+        }
+    </style>
+</head>
+<body>
+<div id="info">
+    <section id="header" class="big-one">
+        {{ name }}
+    </section>
+
+    <div id="main-wrapper">
+        <div id="main">
+            <table>
+                <tr>
+                    <td><img src="{{ image }}" id="chem" /></td>
+                    <td>
+                        <p> {{ description }} </p>
+                        {{#if effects}}
+                        To może Ci się stać po zażyciu:
+                        <ul>
+                            {{#each effects}}
+                            <li>{{ this }}</li>
+                            {{/each}}
+                        </ul>
+
+                        {{/if}}
+
+
+                        {{#if minimalDoses}}
+                        <br>Nawet po pozornie „bezpiecznych” czynnościach mogą pojawić się objawy zatrucia.
+                        <ul>
+                            {{#each minimalDoses}}
+                            <li>{{ this }}</li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <footer class="big-one">
+        {{ footer }}
+    </footer>
+</div>
+</body>
+</html>
