@@ -3,10 +3,19 @@
 const Handlebars = require('handlebars');
 const puppeteer = require('puppeteer');
 const fs = require('fs');
+const _ = require('lodash');
 
-const template = fs.readFileSync(`${__dirname}/template.html`, 'utf8');
 const p = require('path').join.bind(null, __dirname);
 const defaultData = require('./sources/default');
+
+const templates = _.fromPairs(
+    fs.readdirSync(p('templates'))
+        .map(fileName => {
+            const basename = fileName.split('.')[0];
+            const content = fs.readFileSync(p('templates', fileName), 'utf8')
+            return [basename, Handlebars.compile(content)];
+        })
+);
 
 const dataSources = fs.readdirSync(p('sources'))
     .filter(fName => !fName.startsWith('default'))
@@ -21,15 +30,16 @@ const dataSources = fs.readdirSync(p('sources'))
     });
 console.log(dataSources);
 
-const tpl = Handlebars.compile(template);
 for(const {basename, htmlPath, data} of dataSources) {
+    const {template} = data;
+    const tpl = templates[template];
     const finalData = {
         ...defaultData,
         ...data
     };
     const html = tpl(finalData);
     fs.writeFileSync(htmlPath, html, 'utf8');
-    console.log(`Generated ${htmlPath}`);
+    console.log(`Generated ${htmlPath} from template ${template}`);
 }
 
 (async () => {
