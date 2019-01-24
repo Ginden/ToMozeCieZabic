@@ -12,27 +12,31 @@
         }
         #info {
             width: 800px;
+            font-family: "Helvetica";
         }
 
         #main {
-            padding-bottom: 2em;
+            padding-top: 1.5em;
+            padding-bottom: 1.5em;
             background-color: #fff;
+            text-align: justify;
         }
 
         #main-wrapper {
             background-color: white;
             padding-left: 48px;
-            padding-right: 48px;
+            padding-right: 64px;
             margin: 0 auto;
         }
 
         #header {
-            background-color:  #FF4136;
+            background-color: #ED2939;
             color: #fff;
             font-size: 48px;
             text-align: center;
             padding-bottom: 0.25em;
             padding-top: 0.25em;
+            font-weight: bold;
         }
 
         footer {
@@ -45,7 +49,7 @@
         }
 
         #chem {
-            float: left;
+            margin-right: 36px;
         }
 
         .big-one {
@@ -68,7 +72,10 @@
                 <tr>
                     <td><img src="{{ image }}" id="chem" /></td>
                     <td>
-                        <p> {{ description }} </p>
+                        {{#each description}}
+                         <p>{{this}}</p>
+                        {{/each}}
+
                         {{#if effects}}
                         To może Ci się stać po zażyciu:
                         <ul>
