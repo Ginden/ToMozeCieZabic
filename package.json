@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "mkdir -p assets/generated && cp templates/* assets/generated && node index.js"
   },
   "keywords": [],
   "author": "Michał Wadas <michalwadas@gmail.com>",

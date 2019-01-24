@@ -18,8 +18,9 @@
         #main {
             padding-top: 1.5em;
             padding-bottom: 1.5em;
-            background-color: #fff;
+            background-color: transparent;
             text-align: justify;
+
         }
 
         #main-wrapper {
@@ -27,6 +28,11 @@
             padding-left: 48px;
             padding-right: 64px;
             margin: 0 auto;
+            background-image: url('erectus.svg');
+            background-repeat: no-repeat;
+            background-position-x: right;
+            background-position-y: center;
+            background-size: 260px 260px;
         }
 
         #header {
@@ -64,7 +70,7 @@
 <div id="info">
     <section id="header" class="big-one">
 
-        ⚠️ {{ name }}        ⚠️
+        {{ name }}
     </section>
 
     <div id="main-wrapper">

@@ -10,6 +10,7 @@ const defaultData = require('./sources/default');
 
 const templates = _.fromPairs(
     fs.readdirSync(p('templates'))
+        .filter(name => name.endsWith('.html'))
         .map(fileName => {
             const basename = fileName.split('.')[0];
             const content = fs.readFileSync(p('templates', fileName), 'utf8')

@@ -1,7 +1,7 @@
 module.exports = {
     name: 'EDTA',
     description: [`Śmiertelnie groźna substancja, do znalezienia w kosmetykach, a nawet jedzeniu.`,
-        `Czynownicy Big Pharmy powiedzą Ci że służy jako konserwant, a czasem źródło żelaza (np. w płatkach z dodatkiem żelaza).`,
+        `Opłaceni chemicy powiedzą Ci że służy jako konserwant, a czasem źródło żelaza (np. w płatkach z dodatkiem żelaza).`,
     ],
     effects: [
         'Hamuje metaloproteazy',
