@@ -36,7 +36,6 @@
         }
 
         #header {
-            background-color: #ED2939;
             background-image: linear-gradient(to right,  #A20F0F, #ED1616);
             color: #fff;
             font-size: 48px;
@@ -70,6 +69,18 @@
             left: 80px;
             bottom: 24px;
         }
+
+        #asker {
+            width: 100px;
+        }
+
+        #expert {
+            width: 100px;
+        }
+
+        #asker, #expert {
+            border-radius: 1000px;
+        }
     </style>
 </head>
 <body>
@@ -83,32 +94,18 @@
         <div id="main">
             <table>
                 <tr>
-                    <td><img src="{{ image }}" id="chem" /></td>
+                    <td><img src="{{ base64 asker.image }}" id="asker" /></td>
                     <td>
-                        {{#each description}}
-                         <p>{{this}}</p>
-                        {{/each}}
-
-                        {{#if effects}}
-                        To może Ci się stać po zażyciu:
-                        <ul>
-                            {{#each effects}}
-                            <li>{{ this }}</li>
-                            {{/each}}
-                        </ul>
-
-                        {{/if}}
-
-
-                        {{#if minimalDoses}}
-                        <br>Nawet po pozornie „bezpiecznych” czynnościach mogą pojawić się objawy zatrucia.
-                        <ul>
-                            {{#each minimalDoses}}
-                            <li>{{ this }}</li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-
+                        <h2>{{ asker.name }}</h2>
+                        <p>{{question}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="{{ base64 expert.image }}" id="expert" /></td>
+                    <td>
+                        <h3>{{ expert.name }}</h3>
+                        <h4>{{ expert.title}}</h4>
+                        <p>{{answer}}</p>
                     </td>
                 </tr>
             </table>

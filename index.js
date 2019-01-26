@@ -29,6 +29,20 @@ const dataSources = fs.readdirSync(p('sources'))
             data: require(p('sources', fileName))
         }
     });
+
+
+
+Handlebars.registerHelper('base64', function(url, dataType) {
+    const content = fs.readFileSync(p('templates', url));
+    const encoded = content.toString('base64');
+    const str = new Handlebars.SafeString(`data:${dataType};base64,${encoded}`);
+    console.log({url, dataType, str});
+    return str;
+});
+
+
+
+
 console.log(dataSources);
 
 for(const {basename, htmlPath, data} of dataSources) {

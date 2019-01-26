@@ -11,4 +11,4 @@ watch -n5 npm run build
 # Uznania
 
 * Czaszka Homo Erectus za https://commons.wikimedia.org/wiki/File:Homo_erectus.svg
-
+* Achtung - https://commons.wikimedia.org/wiki/File:ISO_7010_W016.svg
