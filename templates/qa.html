@@ -70,21 +70,43 @@
             bottom: 24px;
         }
 
-        #asker {
+        #asker-face {
             width: 100px;
         }
 
-        #expert {
+        #expert-face {
             width: 100px;
         }
 
-        #asker, #expert {
+        #asker-face, #expert-face {
             border-radius: 1000px;
         }
 
         td:nth-of-type(even) {
             padding-left: 35px;
         }
+
+        h3 {
+            margin-bottom: 0;
+        }
+        h4 {
+            margin-top: 0;
+        }
+
+        .expert-answer p {
+            margin: 0.25em;
+        }
+
+        .valign-top {
+            vertical-align: top;
+        }
+        .asker-name {
+            margin-top: 0;
+        }
+        .margin-bottom {
+            margin-bottom: 1em;
+        }
+
     </style>
 </head>
 <body>
@@ -98,18 +120,20 @@
         <div id="main">
             <table>
                 <tr>
-                    <td><img src="{{ base64 asker.image }}" id="asker" /></td>
-                    <td>
-                        <h2>{{ asker.name }}</h2>
+                    <td class="valign-top"><img src="{{ base64 asker.image }}" id="asker-face" /></td>
+                    <td class="valign-top margin-bottom">
+                        <h3 class="asker-name">{{ asker.name }}</h3>
                         <p>{{question}}</p>
                     </td>
                 </tr>
-                <tr>
-                    <td><img src="{{ base64 expert.image }}" id="expert" /></td>
+                <tr class="expert-answer">
+                    <td class="valign-top"><img src="{{ base64 expert.image }}" id="expert-face" /></td>
                     <td>
                         <h3>{{ expert.name }}</h3>
                         <h4>{{ expert.title}}</h4>
-                        <p>{{answer}}</p>
+                        {{#each answer }}
+                        <p>{{this}}</p>
+                        {{/each}}
                     </td>
                 </tr>
             </table>
